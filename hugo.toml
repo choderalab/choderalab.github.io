@@ -1,0 +1,7 @@
+baseURL = 'https://choderalab.github.io/'
+languageCode = 'en-us'
+title = 'Chodera lab // Memorial Sloan Kettering Cancer Center'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
