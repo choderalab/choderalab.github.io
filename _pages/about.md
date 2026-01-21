@@ -9,9 +9,31 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+      <div class="contact-info" style="font-size: 0.9rem; line-height: 1.4;">
+        <div class="mb-3">
+          <i class="fas fa-building text-muted mr-2"></i> <strong>Zuckerman Research Center</strong><br>
+          <span class="ml-4">417 East 68th Street</span><br>
+          <span class="ml-4">New York, NY 10065</span>
+        </div>
+    
+        <div class="mb-3">
+          <p class="mb-1"><i class="fas fa-door-open text-muted mr-2"></i> Office: <strong>Z-690</strong></p>
+          <p class="mb-0"><i class="fas fa-phone text-muted mr-2"></i> <a href="tel:646-888-3400">646-888-3400</a></p>
+        </div>
+    
+        <hr class="my-3">
+    
+        <div class="postal-address small text-muted">
+          <p class="mb-1"><strong>Postal Address:</strong></p>
+          <address class="mb-0" style="font-style: normal;">
+            John Chodera<br>
+            Memorial Sloan Kettering Cancer Center<br>
+            1275 York Ave., ZRC 6-south<br>
+            New York, NY 10065
+          </address>
+        </div>
+      </div>
+    
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,7 +49,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+The Chodera lab uses computation and experiments to develop quantitative, multiscale models of the 
+effects of small molecules on biomolecular macromolecules and cellular pathways. To do this, the 
+group utilizes physical models and rigorous statistical mechanics, with the overall goals of 
+engineering novel therapeutics and tools for chemical biology, as well as understanding the 
+physical driving forces behind ligand recognition the evolution of resistance mutations.
+
+The Chodera group makes use of advanced algorithms for molecular dynamics simulations on graphics
+processing units (GPUs) and distributed computing platforms, in addition to robot-driven moderate 
+and high-throughput experiments focusing on characterizing biophysical interactions between 
+proteins and small molecules.
 
 Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 
