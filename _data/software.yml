@@ -1,14 +1,17 @@
 github_users:
-  - torvalds
-  - alshedivat
+  # - choderalab
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - openmm/openmm
+  - choderalab/openmmtools
+  - choderalab/pymbar
+  - choderalab/software-development
+  - choderalab/espaloma
+  - choderalab/modelforge
+  - choderalab/mtenn
+  - choderalab/yank
+  - choderalab/assaytools
+  - choderalab/ensembler
+  - choderalab/thermopyl
