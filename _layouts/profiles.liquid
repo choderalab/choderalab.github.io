@@ -6,43 +6,86 @@ layout: page
     {{ content }}
 
     {% if site.data.members %}
+      <h2>Current Members</h2>
       {% for member_file in site.data.members %}
         {% assign profile = member_file[1] %}
+        {% if profile.status == "current" %}
+          <div class="profile clearfix">
+            <h3>{{ profile.name }}</h3>
+            <p><strong>Position:</strong> {{ profile.position }}</p>
 
-        <div class="profile clearfix">
-          <h2>{{ profile.name }}</h2>
-          <p><strong>Position:</strong> {{ profile.position }}</p>
+            {% if profile.affiliations %}
+              <p><strong>Affiliations:</strong></p>
+              <ul>
+                {% for affiliation in profile.affiliations %}
+                  <li>{{ affiliation }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
 
-          {% if profile.affiliations %}
-            <p><strong>Affiliations:</strong></p>
-            <ul>
-              {% for affiliation in profile.affiliations %}
-                <li>{{ affiliation }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+            {% if profile.email %}
+              <p><strong>Email:</strong> {{ profile.email }}</p>
+            {% endif %}
 
-          {% if profile.email %}
-            <p><strong>Email:</strong> {{ profile.email }}</p>
-          {% endif %}
+            {% if profile.github %}
+              <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
+            {% endif %}
 
-          {% if profile.github %}
-            <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
-          {% endif %}
+            {% if profile.ORCID %}
+              <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
+            {% endif %}
 
-          {% if profile.ORCID %}
-            <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
-          {% endif %}
+            {% if profile.projects %}
+              <p><strong>Projects:</strong></p>
+              <ul>
+                {% for project in profile.projects %}
+                  <li>{{ project }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
 
-          {% if profile.projects %}
-            <p><strong>Projects:</strong></p>
-            <ul>
-              {% for project in profile.projects %}
-                <li>{{ project }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
+      <h2>Alumni</h2>
+      {% for member_file in site.data.members %}
+        {% assign profile = member_file[1] %}
+        {% if profile.status != "current" %}
+          <div class="profile clearfix">
+            <h3>{{ profile.name }}</h3>
+            <p><strong>Position:</strong> {{ profile.position }}</p>
+
+            {% if profile.affiliations %}
+              <p><strong>Affiliations:</strong></p>
+              <ul>
+                {% for affiliation in profile.affiliations %}
+                  <li>{{ affiliation }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            {% if profile.email %}
+              <p><strong>Email:</strong> {{ profile.email }}</p>
+            {% endif %}
+
+            {% if profile.github %}
+              <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
+            {% endif %}
+
+            {% if profile.ORCID %}
+              <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
+            {% endif %}
+
+            {% if profile.projects %}
+              <p><strong>Projects:</strong></p>
+              <ul>
+                {% for project in profile.projects %}
+                  <li>{{ project }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
       {% endfor %}
     {% else %}
       <p>No member profiles found.</p>
