@@ -1,0 +1,8 @@
+---
+layout: page
+permalink: /resources/3dparts/
+title: 3d parts
+nav: false
+toc:
+  sidebar: left
+---

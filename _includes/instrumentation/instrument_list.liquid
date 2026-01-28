@@ -1,0 +1,8 @@
+{% for item in entry.contents %}
+  <div class="mb-3">
+    <h5 class="font-weight-medium mb-1" style="color: var(--global-theme-color);">
+      {{ item.name }}
+    </h5>
+    <p class="mb-0 small font-weight-normal">{{ item.description }}</p>
+  </div>
+{% endfor %}
