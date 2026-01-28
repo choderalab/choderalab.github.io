@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: instrumentation
 permalink: /resources/instrumentation/
 title: instrumentation
 nav: false
