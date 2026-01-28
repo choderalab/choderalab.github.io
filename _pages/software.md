@@ -2,7 +2,7 @@
 layout: page
 permalink: /resources/software/
 title: software
-description: All our code is free and open source on <a href='https://github.com/choderalab'>GitHub</a>! Read (and contribute to!) our notes on <a href='https://github.com/choderalab/software-development'>Software Development Best Practices for Computational Chemistry</a>!
+description: All our code is free and open source on <a href='https://github.com/choderalab'><b>GitHub</b></a>! Read (and contribute to!) our notes on <a href='https://github.com/choderalab/software-development'><b>Software Development Best Practices for Computational Chemistry</b></a>!
 nav: false
 toc:
   sidebar: left
