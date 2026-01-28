@@ -14,7 +14,12 @@ layout: default
       {% for entry in site.data.instrumentation %}
         <a class="anchor" id="{{ entry.title }}"></a>
         <div class="card mt-3 p-3">
-          <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
+          <h3 class="card-title font-weight-medium">
+            {% if entry.icon %}
+              <i class="{{ entry.icon }}"></i>
+            {% endif %}
+            {{ entry.title }}
+          </h3>
           <div>
             {% if entry.type == 'instrument_list' %}
               {% include instrumentation/instrument_list.liquid %}

@@ -1,8 +1,8 @@
 - title: Experimental Instruments
   type: instrument_list
+  icon: fa-regular fa-lightbulb
   contents:
     - name: Instrument 1
-      icon: fa-regular fa-lightbulb
       description: Description 1.
     - name: Instrument 2
       description: Description 2. (No icon specified.)
