@@ -1,0 +1,82 @@
+# Featured repositories for the carousel
+# Auto-updated by GitHub Actions - do not edit manually
+repos:
+  - name: openmmtools
+    full_name: choderalab/openmmtools
+    description: A batteries-included toolkit for the GPU-accelerated OpenMM molecular simulation engine.
+    html_url: https://github.com/choderalab/openmmtools
+    language: Python
+    stargazers_count: 313
+    forks_count: 85
+    license: MIT
+    topics:
+      - molecular-dynamics
+      - openmm
+      - simulation
+
+  - name: pymbar
+    full_name: choderalab/pymbar
+    description: Python implementation of the multistate Bennett acceptance ratio (MBAR) for free energy calculations.
+    html_url: https://github.com/choderalab/pymbar
+    language: Python
+    stargazers_count: 290
+    forks_count: 95
+    license: MIT
+    topics:
+      - free-energy
+      - thermodynamics
+      - statistical-mechanics
+
+  - name: software-development
+    full_name: choderalab/software-development
+    description: A primer on software development best practices for computational chemistry researchers.
+    html_url: https://github.com/choderalab/software-development
+    language: Docs
+    stargazers_count: 273
+    forks_count: 80
+    license: CC-BY
+    topics:
+      - best-practices
+      - tutorial
+      - documentation
+
+  - name: espaloma
+    full_name: choderalab/espaloma
+    description: Extensible Surrogate Potential of Ab initio Learned and Optimized by Message-passing Algorithm.
+    html_url: https://github.com/choderalab/espaloma
+    language: Python
+    stargazers_count: 262
+    forks_count: 29
+    license: MIT
+    topics:
+      - machine-learning
+      - force-field
+      - graph-neural-network
+
+  - name: modelforge
+    full_name: choderalab/modelforge
+    description: Infrastructure to implement and train Neural Network Potentials (NNPs) for molecular simulation.
+    html_url: https://github.com/choderalab/modelforge
+    language: Python
+    stargazers_count: 21
+    forks_count: 5
+    license: MIT
+    topics:
+      - neural-networks
+      - potentials
+      - deep-learning
+
+  - name: mtenn
+    full_name: choderalab/mtenn
+    description: Modular Training and Evaluation of Neural Networks for drug discovery applications.
+    html_url: https://github.com/choderalab/mtenn
+    language: Python
+    stargazers_count: 8
+    forks_count: 2
+    license: MIT
+    topics:
+      - drug-discovery
+      - neural-networks
+      - pytorch
+
+last_updated: "2026-01-28"
