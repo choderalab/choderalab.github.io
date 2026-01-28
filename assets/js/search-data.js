@@ -3,18 +3,25 @@ const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
 ninja.data = [{
-    id: "nav-about",
-    title: "about",
+    id: "nav-home",
+    title: "home",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "blog",
+  },{id: "nav-about",
+          title: "about",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/blog/";
+            window.location.href = "/about/";
+          },
+        },{id: "nav-members",
+          title: "members",
+          description: "members of the group",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/members/";
           },
         },{id: "nav-publications",
           title: "publications",
@@ -23,47 +30,33 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "A growing collection of your cool projects.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/projects/";
-          },
-        },{id: "nav-repositories",
-          title: "repositories",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
-          },
-        },{id: "nav-cv",
-          title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/cv/";
-          },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/teaching/";
-          },
-        },{id: "nav-people",
-          title: "people",
-          description: "members of the lab or group",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/people/";
-          },
-        },{id: "dropdown-bookshelf",
-              title: "bookshelf",
+        },{id: "dropdown-software",
+              title: "software",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/books/";
+                window.location.href = "/resources/software/";
+              },
+            },{id: "dropdown-instrumentation",
+              title: "instrumentation",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/resources/instrumentation/";
+              },
+            },{id: "dropdown-data",
+              title: "data",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/resources/data/";
+              },
+            },{id: "dropdown-3dparts",
+              title: "3dparts",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/resources/3dparts/";
               },
             },{id: "dropdown-blog",
               title: "blog",
@@ -72,7 +65,21 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "nav-funding",
+          title: "funding",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/funding/";
+          },
+        },{id: "nav-disclosures",
+          title: "disclosures",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/dislosures/";
+          },
+        },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
