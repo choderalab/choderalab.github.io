@@ -3,34 +3,49 @@ layout: page
 ---
 <div class="post">
   <article>
-    {% if page.profiles %}
-      {% for profile in page.profiles %}
-        <hr>
-        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
-          {% if profile.image %}
-            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-            {% if profile.image_circular %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-            {% else %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-            {% endif %}
-            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
-            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
-          {% endif %}
-          {% if profile.more_info %}
-            <div class="more-info">{{ profile.more_info }}</div>
-          {% endif %}
-        </div>
+    {{ content }}
 
-        <div class="clearfix">
-          {% if profile.content %}
-            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-            {{ profile_content | markdownify }}
-          {% else %}
-            {{ content }}
+    {% if site.data.members %}
+      {% for member_file in site.data.members %}
+        {% assign profile = member_file[1] %}
+
+        <div class="profile clearfix">
+          <h2>{{ profile.name }}</h2>
+          <p><strong>Position:</strong> {{ profile.position }}</p>
+
+          {% if profile.affiliations %}
+            <p><strong>Affiliations:</strong></p>
+            <ul>
+              {% for affiliation in profile.affiliations %}
+                <li>{{ affiliation }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if profile.email %}
+            <p><strong>Email:</strong> {{ profile.email }}</p>
+          {% endif %}
+
+          {% if profile.github %}
+            <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
+          {% endif %}
+
+          {% if profile.ORCID %}
+            <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
+          {% endif %}
+
+          {% if profile.projects %}
+            <p><strong>Projects:</strong></p>
+            <ul>
+              {% for project in profile.projects %}
+                <li>{{ project }}</li>
+              {% endfor %}
+            </ul>
           {% endif %}
         </div>
       {% endfor %}
+    {% else %}
+      <p>No member profiles found.</p>
     {% endif %}
   </article>
 </div>
