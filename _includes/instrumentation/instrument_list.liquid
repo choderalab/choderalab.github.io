@@ -1,0 +1,15 @@
+<div class="list-group list-group-flush">
+  {% for item in entry.contents %}
+    <div class="list-group-item">
+      <h5 class="font-weight-medium" style="color: var(--global-theme-color);">
+        {% if item.icon %}
+          <i class="{{ item.icon }}"></i>
+        {% else %}
+          #
+        {% endif %}
+        {{ item.name }}
+      </h5>
+      <p class="mb-0 small font-weight-normal">{{ item.description }}</p>
+    </div>
+  {% endfor %}
+</div>
