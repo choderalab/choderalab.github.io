@@ -38,7 +38,7 @@ toc:
 
 {% if site.data.software.github_repos %}
 
-## GitHub Repositories
+## Software Repositories
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for repo in site.data.software.github_repos %}
