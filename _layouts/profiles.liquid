@@ -23,10 +23,14 @@ layout: page
         display: inline-flex;
         align-items: center;
       }
-      .profile-link svg {
-        width: 20px;
-        height: 20px;
+      /* Ensure all contact icons (favicons or inline SVGs) render at a consistent size */
+      .profile-link img,
+      .profile-link svg,
+      .profile-icon {
+        width: 30px;
+        height: 30px;
         display: block;
+        object-fit: contain;
       }
     </style>
 
