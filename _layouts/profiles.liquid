@@ -3,24 +3,41 @@ layout: page
 ---
 <div class="post">
   <article>
+    {{ content }}
+
+    <style>
+      /* Hide TOC links that point to alumni headings on this page TOC */
+      #toc-sidebar a[href^="#alumni-"] {
+        display: none !important;
+      }
+      /* Small icon bar for profile contact links */
+      .profile-links {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0.5rem 0 0.75rem 0;
+      }
+      .profile-link {
+        color: inherit;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+      /* Ensure all contact icons (favicons or inline SVGs) render at a consistent size */
+      .profile-link img,
+      .profile-link svg,
+      .profile-icon {
+        width: 30px;
+        height: 30px;
+        display: block;
+        object-fit: contain;
+      }
+    </style>
+
     {% if page.profiles %}
       {% for profile in page.profiles %}
         <hr>
-        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
-          {% if profile.image %}
-            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-            {% if profile.image_circular %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-            {% else %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-            {% endif %}
-            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
-            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
-          {% endif %}
-          {% if profile.more_info %}
-            <div class="more-info">{{ profile.more_info }}</div>
-          {% endif %}
-        </div>
+        {% include profile-card.liquid profile=profile %}
 
         <div class="clearfix">
           {% if profile.content %}
@@ -31,6 +48,37 @@ layout: page
           {% endif %}
         </div>
       {% endfor %}
+    {% endif %}
+
+    {% if site.data.members %}
+      <h2>Current Members</h2>
+      {% for member_file in site.data.members %}
+        {% assign profile = member_file[1] %}
+        {% if profile.status == "current" %}
+          <hr>
+            {% assign heading_id = profile.name | slugify | prepend: 'member-' %}
+            {% include profile-card.liquid profile=profile render_details=false %}
+
+            {% include profile-card.liquid profile=profile render_details=true show_image=false heading_id=heading_id %}
+        {% endif %}
+      {% endfor %}
+
+      <h2>Alumni</h2>
+      <details>
+      <summary><b>Alumni</b></summary>
+      {% for member_file in site.data.members %}
+        {% assign profile = member_file[1] %}
+        {% if profile.status != "current" %}
+          <hr>
+          {% assign heading_id = profile.name | slugify | prepend: 'alumni-' %}
+          {% include profile-card.liquid profile=profile render_details=false %}
+
+          {% include profile-card.liquid profile=profile render_details=true heading_id=heading_id show_image=false %}
+        {% endif %}
+      {% endfor %}
+      </details>
+    {% else %}
+      <p>No member profiles found.</p>
     {% endif %}
   </article>
 </div>

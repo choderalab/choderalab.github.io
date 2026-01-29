@@ -1,8 +1,33 @@
 ---
 ---
+<style>
+  /* Make author links appear as filled text (no underline) and inherit surrounding color */
+  .author a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+  .author a:hover,
+  .author a:focus {
+    text-decoration: none !important;
+  }
+
+  /* Make publication preview images fill the left column and stay responsive */
+  .preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  /* Slight spacing tweak so the left column and content have breathing room */
+  .row > .col.abbr {
+    padding-right: 1rem;
+  }
+</style>
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-2 abbr">
+    <div class="col col-sm-4 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
@@ -53,88 +78,90 @@
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
 
-      {% assign author_array_limit = author_array_size %}
-      {% if site.max_author_limit and author_array_size > site.max_author_limit %}
-        {% assign author_array_limit = site.max_author_limit %}
+      {%- comment -%}
+        Render authors: always show up to 10 authors (Last, Initials). Match authors to
+        members/coauthors to add links and styling. Simpler, single well-nested branch
+        to avoid Liquid parsing errors.
+      {%- endcomment -%}
+      {% assign display_limit = author_array_size %}
+      {% if display_limit > 10 %}
+        {% assign display_limit = 10 %}
       {% endif %}
+      {% assign author_array_limit = display_limit %}
 
-      {%- for author in entry.author_array limit: author_array_limit -%}
-        {% assign author_is_self = false %}
+      {%- assign rendered = 0 -%}
+      {%- for author in entry.author_array -%}
         {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
-        {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
-        {% if site.scholar.last_name contains author_last_name %}
-          {% if site.scholar.first_name contains author.first %}
-            {% assign author_is_self = true %}
-          {% endif %}
-        {%- endif -%}
-        {% assign coauthor_url = null %}
+        {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\\1</sup>' -%}
+
+        {%- comment -%} build initials from author.first (e.g., "John A." -> "JA") {%- endcomment -%}
+        {% assign name_tokens = author.first | split: ' ' %}
+        {% capture initials %}{% for t in name_tokens %}{{ t | slice: 0,1 | upcase }}{% endfor %}{% endcapture %}
+
+        {%- assign coauthor_url = null %}
         {%- assign clean_last_name = author_last_name | downcase | remove_accents -%}
         {% if site.data.coauthors[clean_last_name] %}
           {%- for coauthor in site.data.coauthors[clean_last_name] -%}
             {% if coauthor.firstname contains author.first %}
               {%- assign coauthor_url = coauthor.url -%}
               {% break %}
-            {%- endif -%}
+            {% endif %}
           {% endfor %}
-        {%- endif -%}
+        {%- endif %}
 
-        {%- if forloop.length > 1 -%}
-          {% if forloop.first == false -%}
-            {%- if forloop.length > 2 %}, {% elsif forloop.length == 2 %}  {% endif %}
-          {%- endif %}
-          {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
-        {% endif %}
-        {%- if author_is_self -%}
-          <em>
-            {{- author.first }}
-            {{ author_last_html -}}
-          </em>
-        {%- else -%}
-          {%- if coauthor_url -%}
-            <a href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </a>
-          {%- else -%}
-            {{- author.first }}
-            {{ author_last_html -}}
+        {%- comment -%} try to match this author to a member in site.data.members to style current vs alumni {%- endcomment -%}
+        {% assign member_status = null %}
+        {% assign member_anchor = null %}
+        {% assign author_first_clean = author.first | remove: '.' | downcase | remove_accents %}
+        {%- for member_file in site.data.members -%}
+          {% assign m = member_file[1] %}
+          {% if m.name %}
+            {% assign m_name_parts = m.name | split: ' ' %}
+            {% assign m_last = m_name_parts | last | downcase | remove_accents %}
+            {% assign m_first = m_name_parts | first | remove: '.' | downcase | remove_accents %}
+            {% if m_last == clean_last_name and (author_first_clean contains m_first or m_first contains author_first_clean) %}
+              {% assign member_status = m.status | default: "alumni" %}
+              {% assign member_anchor = m.name | slugify %}
+              {% break %}
+            {% endif %}
           {% endif %}
-        {%- endif -%}
-      {% endfor %}
-      {%- assign more_authors = author_array_size | minus: author_array_limit -%}
+        {% endfor %}
 
-      {%- assign more_authors_hide = more_authors | append: ' more author' -%}
+        {%- comment -%}
+          Decide whether to render this author:
+          - Always render the first `display_limit` authors (to preserve order)
+          - Also render any author matched to site.data.members (current or alumni)
+        {%- endcomment -%}
+        {% assign should_render = false %}
+        {% if forloop.index0 < display_limit %}
+          {% assign should_render = true %}
+        {% endif %}
+        {% if member_status == 'current' or member_status == 'alumni' %}
+          {% assign should_render = true %}
+        {% endif %}
+
+        {% if should_render %}
+          {%- if rendered > 0 -%}, {% endif %}
+          {%- if member_status == 'current' -%}
+            {% assign anchor_id = 'member-' | append: member_anchor %}
+            <strong><a href="{{ '/members/#' | append: anchor_id }}">{{ author_last_html | strip }} {{ initials | strip }}</a></strong>
+          {%- elsif member_status == 'alumni' -%}
+            {% assign anchor_id = 'alumni-' | append: member_anchor %}
+            <i><a href="{{ '/members/#' | append: anchor_id }}">{{ author_last_html | strip }} {{ initials | strip }}</a></i>
+          {%- else -%}
+            {%- if coauthor_url -%}
+              <a href="{{ coauthor_url }}">{{ author_last_html | strip }} {{ initials | strip }}</a>
+            {%- else -%}
+              {{ author_last_html | strip }} {{ initials | strip }}
+            {%- endif -%}
+          {%- endif -%}
+          {% assign rendered = rendered | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+
+      {%- assign more_authors = author_array_size | minus: rendered -%}
       {% if more_authors > 0 %}
-        {%- if more_authors > 1 -%}
-          {% assign more_authors_hide = more_authors_hide | append: 's' %}
-        {%- endif -%}
-        {% assign more_authors_show = '' %}
-        {%- for author in entry.author_array offset: author_array_limit -%}
-          {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
-          {% unless forloop.last %}
-            {% assign more_authors_show = more_authors_show | append: ', ' %}
-          {% endunless %}
-        {%- endfor -%}
-        {%- assign more_authors_show = more_authors_show | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
-        , and
-        <span
-          class="more-authors"
-          title="click to view {{ more_authors_hide }}"
-          onclick="
-              var element = $(this);
-              element.attr('title', '');
-              var more_authors_text = element.text() == '{{ more_authors_hide }}' ? '{{ more_authors_show }}' : '{{ more_authors_hide }}';
-              var cursorPosition = 0;
-              var textAdder = setInterval(function(){
-                element.html(more_authors_text.substring(0, cursorPosition + 1));
-                if (++cursorPosition == more_authors_text.length){
-                  clearInterval(textAdder);
-                }
-            }, '{{ site.more_authors_animation_delay }}');
-          "
-        >
-          {{- more_authors_hide -}}
-        </span>
+        , and {{ more_authors }} more author{% if more_authors > 1 %}s{% endif %}
       {% endif %}
       {% if entry.annotation %}
         <i
@@ -200,6 +227,10 @@
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
+      {% if entry.url and entry.doi == nil %}
+        <a href="{{ entry.url }}" class="btn btn-sm z-depth-0" role="button">URL</a>
+      {% endif %}
+
       {% if entry.arxiv %}
         <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {% endif %}
