@@ -1,0 +1,26 @@
+{% for item in entry.contents %}
+  <div class="mb-3">
+    <h5 class="font-weight-medium mb-1" style="color: var(--global-theme-color);">
+      {{ item.name }}
+    </h5>
+    <p class="mb-0 small font-weight-normal">
+      {{ item.description }} <br><br>
+      {{item.compatibility}} <br><br>
+      {{item.authors}} <br><br>
+      Available from:<br>
+      <ul>
+        <li><a href="{{ item.print_exchange }}" target="_blank" rel="noopener">NIH 3D Print Exchange</a></l1>
+        <li> <a href="{{item.figshare}}" target="_blank" rel="noopener">Figshare</a></l1>
+      </ul>
+      Citation:
+      <ul>
+        <li><a href="{{ item.citation }}" target="_blank" rel="noopener">{{ item.citation }}</a></l1>
+      </ul>
+    </p>
+    {% if item.image %}
+      <div class="mt-2">
+        <img src="{{ item.image }}" alt="{{ item.name }}" class="img-fluid rounded">
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}

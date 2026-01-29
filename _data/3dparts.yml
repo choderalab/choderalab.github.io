@@ -1,0 +1,40 @@
+- title: Custom Labware 3D Parts
+  type: 3dparts_list
+  icon: fa-solid fa-gear
+  contents:
+
+  - name: Caliper LabChip GX II SBS-Format Chip Holder
+    description: SBS-format plate allows microfluidic chip for Caliper LabChip electrophoresis to be prepared using liquid handling automation system.
+    compatibility: Designed for compatibility with Costar microcentrifuge tube (cat no. 3206, 0.65mL prelubricated) for submersion of the chip's capillary "sipper".
+    authors: Designed by Julie Behr, CBM graduate student, during rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000549
+    figshare: http://figshare.com/articles/Caliper_LabChip_GX_II_Chip_Holder/1144504
+    citation: http://dx.doi.org/10.6084/m9.figshare.1144504
+    image: /assets/img/3dparts/chip_holder.png
+
+  - name: Universal Portrait/Landscape Tecan EVO One-Place MTP Carrier
+    description: Single position plate carrier designed such that the center of the plate is at the same position in space with respect to the deck whether the carrier is positioned in a portrait or landscape orientation.  The robotic manipulator arm (RoMa) can therefore access plates on this carrier in either orientation after being trained once.
+    compatibility: Designed with slots for pins corresponding to Tecan Freedom EVO deck.
+    authors: Designed collaboratively by John Chodera, MSKCC; Nikki Aldeborgh, research technician in the Kayvan Keshari lab, MSKCC; Sonya Hanson, postdoctoral research fellow in Chodera Lab, MSKCC; and Julie Behr, CBM graduate student, during rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000550
+    figshare: http://figshare.com/articles/Universal_Portrait_Landscape_Tecan_EVO_One_Place_MTP_Carrier/1144505
+    citation: http://dx.doi.org/10.6084/m9.figshare.1144505
+    image: /assets/img/3dparts/evo.png
+
+  - name: 15-Well Vial Holder
+    description: SBS-format vial holder for automation or liquid-handling systems.
+    compatibility: "Designed for -FISHERBRAND VIAL, SCREW THREAD -21X70MM, 4 DR -03-339-21F. Vial, Sample; Fisherbrand; Type I, Class B clear borosilicate glass; Closure: Black phenolic screw cap; Liner: Polyvinyl-faced pulp; GPI thread finish: 18-400; Capacity: 4 dr. (14.8mL); O.D. x L: 21 x 70mm"
+    authors: Designed by Julie Behr, CBM graduate student, during mini-rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000429
+    figshare: http://figshare.com/articles/15_Well_Vial_Holder/1094852
+    citation: http://dx.doi.org/10.6084/m9.figshare.1094852
+    image: /assets/img/3dparts/vial_holder.png
+
+  - name: 96-Well Paper Microzone Plate Holder
+    description: "SBS-format carrier for patterned paper, for use with 96-well paper microzone plates."
+    compatibility: Square-well plate suitable for top and bottom reads with tall wells ensuring light separation on either side of paper slot
+    authors: Designed by Julie Behr, CBM graduate student, during mini-rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000430
+    figshare: http://figshare.com/articles/96_Well_Paper_Microzone_Plate_Holder/1094841
+    citation: http://dx.doi.org/10.6084/m9.figshare.1094841
+    image: /assets/img/3dparts/96well.png
