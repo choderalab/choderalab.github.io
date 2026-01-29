@@ -1,0 +1,119 @@
+{% comment %}
+Include: profile-card.liquid
+Parameters:
+ - profile: the profile object (from page.profiles or site.data.members)
+ - render_details: (optional) if true, render the details block (name, position, contacts, projects)
+ - heading_id: (optional) id to put on the heading (useful for alumni so TOC links can be hidden)
+
+This include renders the floated image / more-info block and optionally the details block.
+{% endcomment %}
+
+{% comment %} Show the image/more-info block unless caller explicitly passes show_image=false {% endcomment %}
+{% if include.show_image != false %}
+  <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
+    {% if profile.image %}
+      {% assign profile_image_path = profile.image | prepend: 'assets/img/members/' %}
+      {% if profile.image_circular %}
+        {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+      {% else %}
+        {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+      {% endif %}
+      {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
+      {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
+    {% endif %}
+
+    {% if profile.more_info %}
+      <div class="more-info">{{ profile.more_info }}</div>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if include.render_details %}
+  <div class="clearfix">
+    <h3{% if include.heading_id %} id="{{ include.heading_id }}"{% endif %}>{{ profile.name }}</h3>
+    <p><strong>Position:</strong> {{ profile.position }}</p>
+
+    {% if profile.email %}
+      <p><strong>Email:</strong> <a href="mailto:{{ profile.email }}">{{ profile.email }}</a></p>
+    {% endif %}
+    {% comment %} compact icon links for contact/profile pages (placed above affiliations and projects) {% endcomment %}
+    {% assign scholar = profile['google-scholar'] %}
+    {% if scholar == nil %}
+      {% assign scholar = profile.google_scholar %}
+    {% endif %}
+
+    <div class="profile-links" aria-hidden="false">
+
+      {% if profile.github %}
+        {% assign github_field = profile.github %}
+        {% if github_field contains 'http' %}
+          {% capture gh_host %}{{ github_field | remove: 'https://' | remove: 'http://' | split: '/' | first }}{% endcapture %}
+        {% else %}
+          {% capture gh_host %}github.com{% endcapture %}
+        {% endif %}
+        {% assign gh_favicon = 'https://' | append: gh_host | append: '/favicon.ico' %}
+        {% if github_field contains 'http' %}
+          {% assign gh_link = github_field %}
+        {% else %}
+          {% assign gh_link = 'https://github.com/' | append: github_field %}
+        {% endif %}
+        <a class="profile-link" href="{{ gh_link }}" title="GitHub: {{ profile.github }}" aria-label="GitHub {{ profile.name }}" target="_blank" rel="noopener noreferrer">
+          <img class="profile-icon" src="{{ gh_favicon }}" alt="GitHub">
+        </a>
+      {% endif %}
+
+      {% if profile.ORCID %}
+        {% assign orcid_field = profile.ORCID %}
+        {% if orcid_field contains 'http' %}
+          {% capture orcid_host %}{{ orcid_field | remove: 'https://' | remove: 'http://' | split: '/' | first }}{% endcapture %}
+        {% else %}
+          {% capture orcid_host %}orcid.org{% endcapture %}
+        {% endif %}
+        {% assign orcid_favicon = 'https://' | append: orcid_host | append: '/favicon.ico' %}
+        {% if orcid_field contains 'http' %}
+          {% assign orcid_link = orcid_field %}
+        {% else %}
+          {% assign orcid_link = 'https://orcid.org/' | append: orcid_field %}
+        {% endif %}
+        <a class="profile-link" href="{{ orcid_link }}" title="ORCID: {{ profile.ORCID }}" aria-label="ORCID {{ profile.name }}" target="_blank" rel="noopener noreferrer">
+          <img class="profile-icon" src="{{ orcid_favicon }}" alt="ORCID">
+        </a>
+      {% endif %}
+
+      {% if scholar %}
+        {% assign scholar_field = scholar %}
+        {% if scholar_field contains 'http' %}
+          {% capture scholar_host %}{{ scholar_field | remove: 'https://' | remove: 'http://' | split: '/' | first }}{% endcapture %}
+        {% else %}
+          {% capture scholar_host %}scholar.google.com{% endcapture %}
+        {% endif %}
+        {% assign scholar_favicon = 'https://' | append: scholar_host | append: '/favicon.ico' %}
+        <a class="profile-link" href="{{ scholar_field }}" title="Google Scholar" aria-label="Google Scholar {{ profile.name }}" target="_blank" rel="noopener noreferrer">
+          <img class="profile-icon" src="{{ scholar_favicon }}" alt="Google Scholar">
+        </a>
+      {% endif %}
+    </div>
+
+    {% if profile.affiliations %}
+      <details>
+        <summary><b>Affiliations</b></summary>
+        <ul>
+          {% for affiliation in profile.affiliations %}
+            <li>{{ affiliation }}</li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endif %}
+
+    {% if profile.projects %}
+      <details>
+        <summary><b>Projects</b></summary>
+        <ul>
+          {% for project in profile.projects %}
+            <li>{{ project }}</li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endif %}
+  </div>
+{% endif %}
