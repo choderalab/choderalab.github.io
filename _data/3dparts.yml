@@ -1,119 +1,40 @@
-- title: Laboratory automation system overview
-  type: instrument_list
+- title: Custom Labware 3D Parts
+  type: 3dparts_list
   icon: fa-solid fa-gear
   contents:
 
-  - name: Thermo Fisher Momentum software
-    description: facilitates scheduling of multiple experiments simultaneously
+  - name: Caliper LabChip GX II SBS-Format Chip Holder
+    description: SBS-format plate allows microfluidic chip for Caliper LabChip electrophoresis to be prepared using liquid handling automation system.
+    compatibility: Designed for compatibility with Costar microcentrifuge tube (cat no. 3206, 0.65mL prelubricated) for submersion of the chip's capillary "sipper".
+    authors: Designed by Julie Behr, CBM graduate student, during rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000549
+    figshare: http://figshare.com/articles/Caliper_LabChip_GX_II_Chip_Holder/1144504
+    citation: http://dx.doi.org/10.6084/m9.figshare.1144504
+    image: /assets/img/3dparts/chip_holder.png
 
-  - name: Thermo BenchTrak Orbitor
-    description: automated 360-degree plate manipulator with internal regrip station, mounted on a 3.6 m linear track; used to integrate various other pieces of wet lab equipment into a single automation system
+  - name: Universal Portrait/Landscape Tecan EVO One-Place MTP Carrier
+    description: Single position plate carrier designed such that the center of the plate is at the same position in space with respect to the deck whether the carrier is positioned in a portrait or landscape orientation.  The robotic manipulator arm (RoMa) can therefore access plates on this carrier in either orientation after being trained once.
+    compatibility: Designed with slots for pins corresponding to Tecan Freedom EVO deck.
+    authors: Designed collaboratively by John Chodera, MSKCC; Nikki Aldeborgh, research technician in the Kayvan Keshari lab, MSKCC; Sonya Hanson, postdoctoral research fellow in Chodera Lab, MSKCC; and Julie Behr, CBM graduate student, during rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000550
+    figshare: http://figshare.com/articles/Universal_Portrait_Landscape_Tecan_EVO_One_Place_MTP_Carrier/1144505
+    citation: http://dx.doi.org/10.6084/m9.figshare.1144505
+    image: /assets/img/3dparts/evo.png
 
-  - name: BioNex HiG4 robotic centrifuge
-    description: microplate centrifugation, up to 5000g
+  - name: 15-Well Vial Holder
+    description: SBS-format vial holder for automation or liquid-handling systems.
+    compatibility: "Designed for -FISHERBRAND VIAL, SCREW THREAD -21X70MM, 4 DR -03-339-21F. Vial, Sample; Fisherbrand; Type I, Class B clear borosilicate glass; Closure: Black phenolic screw cap; Liner: Polyvinyl-faced pulp; GPI thread finish: 18-400; Capacity: 4 dr. (14.8mL); O.D. x L: 21 x 70mm"
+    authors: Designed by Julie Behr, CBM graduate student, during mini-rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000429
+    figshare: http://figshare.com/articles/15_Well_Vial_Holder/1094852
+    citation: http://dx.doi.org/10.6084/m9.figshare.1094852
+    image: /assets/img/3dparts/vial_holder.png
 
-  - name: 4x Inheco Incubator-Shaker DWP
-    description: bacterial culture and incubation in 96-well deepwell plates
-
-  - name: Agilent PlateLoc
-    description: automated plate sealer
-
-  - name: Agilent VCode
-    description: automated barcode printing and application for microplates
-
-  - name: Thermo Cytomat Hotel
-    description: for random access to hundreds of microplates
-
-  - name: Thermo MultiDrop Combi reagent dispenser
-    description: for rapid filling of microplates with common reagents
-
-  - name: Opentrons OT-2
-    description: small, customizable liquid handling robot controlled using open-source Python code
-
-  - name: Tecan Freedom EVO 200
-    description: automated liquid handling workstation equipped with air and liquid liquid-handling arms, robotic manipulator arm, vacuum manifold, heating/shaking stations, and Pelteir modules
-
-  - name: Tecan HP D300e
-    description: direct digital titration of compounds in DMSO
-
-  - name: Tecan Infinite M1000PRO multifunction plate reader
-    description: equipped for absorption, fluorescence, fluorescence polarization, luminescence, and alphascreen assays, with injectors for kinetic assays
-
-  - name: Tecan SPARK
-    description: equipped for absorption, fluorescence, fluorescence polarization, and luminescence, with injectors for kinetic assays and cooling module
-
-  - name: Roche LightCycler 480
-    description: qPCR for standard PCR and thermofluor protein denaturation melts
-
-  - name: ServersCheck
-    description: temperature/humidity probes
-
-- title: Tecan Freedom EVO 200 liquid-handling workstation
-  type: instrument_list
-  icon: fa-solid fa-flask
-  contents:
-
-  - name: Liquid Handling Arm (LiHa)
-    description: liquid-based syringe-actuated pipetting arm for dispensing volumes up to 1000 uL without the need for disposable pipette tips
-
-  - name: Air LiHa
-    description: air based pipetting arm with disposable tips for accurate dispensing of 1-200 uL volumes
-
-  - name: Tecan Te-VacS
-    description: vacuum station with two independently controlled vacuum manifolds
-
-  - name: 4x Torrey Pines EchoTherm RIC20 Peltier units
-    description: for heating and cooling
-
-  - name: Robotic Manipulator Arm (RoMa)
-    description: robotic manipulator arm for manipulating labware on the deck
-
-  - name: 2x Inheco Thermoshake heating cooling shakers
-    description: for heating, cooling, and shaking while pipetting
-
-- title: Compound stock solution preparation/Compound storage
-  type: instrument_list
-  icon: fa-solid fa-scale-balanced
-  contents:
-
-  - name: LabMinds Revo automated buffer maker (now called accroma bufferPrep)
-    description: fully automated, reproducible, traceable preparation of buffers in liter quantities, requested by built-in tablet or on-the-go from your mobile device
-
-  - name: Roylan Developments Ltd StoragePods
-    description: multichannel compound storage unit to prevent moisture absorption of samples; storage capacity of 252 shallow well plates or 72 tube racks
-
-  - name: Mettler-Toledo Quantos automatic gravimetric solution preparation system
-    description: powder and liquid dosing heads enable accurate preparation of compound solution stocks; integrated Mettler-Toledo QD206DR balance has 0.005 mg @ 81 g / 0.01 mg @ 220 g readability
-
-- title: Column chromatography
-  type: instrument_list
-  icon: fa-solid fa-box-open
-  contents:
-
-  - name: Four-tiered Bio-Rad NGC Quest 10 Plus Chromatography System
-    description: for column chromatography; equipped with 10 mL/min pumps, multi-wavelength (UV/Vis) and conductivity detectors, pH sensing, automated sample injection, buffer blending valve, with the capacity to run multiple columns in succession
-
-  - name: Fisherbrand Dispensing Peristaltic Pump
-    description: to filter solutions before applying to chromatography systems
-
-- title: Thermodynamic measurement
-  type: instrument_list
-  icon: fa-solid fa-arrows-spin
-  contents:
-
-  - name: Malvern MicroCal Peaq-ITC Automated
-    description: for automated thermodynamic measurements of biomolecular interactions with the capacity to run up to four 96-well plates per experiment
-
-- title: Density measurement
-  type: instrument_list
-  icon: fa-solid fa-vials
-  contents:
-
-  - name: Mettler-Toledo DM40 density meter
-    description: with 0.0001 g/cm3 accuracy, 0-3 g/cm3 range, and temperature measurement range of 0-91 C using 1 mL sample volumes
-
-  - name: Mettler-Toledo
-    description: SC30 automated sample changer with 30-sample capacity
-
-  - name: LabX
-    description: ELN software for data management
+  - name: 96-Well Paper Microzone Plate Holder
+    description: "SBS-format carrier for patterned paper, for use with 96-well paper microzone plates."
+    compatibility: Square-well plate suitable for top and bottom reads with tall wells ensuring light separation on either side of paper slot
+    authors: Designed by Julie Behr, CBM graduate student, during mini-rotation in Chodera lab, MSKCC.
+    print_exchange: http://3dprint.nih.gov/discover/3dpx-000430
+    figshare: http://figshare.com/articles/96_Well_Paper_Microzone_Plate_Holder/1094841
+    citation: http://dx.doi.org/10.6084/m9.figshare.1094841
+    image: /assets/img/3dparts/96well.png
