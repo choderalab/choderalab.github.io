@@ -1,0 +1,66 @@
+{% comment %}
+Include: profile-card.liquid
+Parameters:
+ - profile: the profile object (from page.profiles or site.data.members)
+ - render_details: (optional) if true, render the details block (name, position, contacts, projects)
+ - heading_id: (optional) id to put on the heading (useful for alumni so TOC links can be hidden)
+
+This include renders the floated image / more-info block and optionally the details block.
+{% endcomment %}
+
+{% comment %} Show the image/more-info block unless caller explicitly passes show_image=false {% endcomment %}
+{% if include.show_image != false %}
+  <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
+    {% if profile.image %}
+      {% assign profile_image_path = profile.image | prepend: 'assets/img/members/' %}
+      {% if profile.image_circular %}
+        {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+      {% else %}
+        {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+      {% endif %}
+      {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
+      {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.image %}
+    {% endif %}
+
+    {% if profile.more_info %}
+      <div class="more-info">{{ profile.more_info }}</div>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if include.render_details %}
+  <div class="clearfix">
+    <h3{% if include.heading_id %} id="{{ include.heading_id }}"{% endif %}>{{ profile.name }}</h3>
+    <p><strong>Position:</strong> {{ profile.position }}</p>
+
+    {% if profile.affiliations %}
+      <p><strong>Affiliations:</strong></p>
+      <ul>
+        {% for affiliation in profile.affiliations %}
+          <li>{{ affiliation }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if profile.email %}
+      <p><strong>Email:</strong> {{ profile.email }}</p>
+    {% endif %}
+
+    {% if profile.github %}
+      <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
+    {% endif %}
+
+    {% if profile.ORCID %}
+      <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
+    {% endif %}
+
+    {% if profile.projects %}
+      <p><strong>Projects:</strong></p>
+      <ul>
+        {% for project in profile.projects %}
+          <li>{{ project }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endif %}
