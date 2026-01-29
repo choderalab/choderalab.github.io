@@ -33,34 +33,87 @@ This include renders the floated image / more-info block and optionally the deta
     <h3{% if include.heading_id %} id="{{ include.heading_id }}"{% endif %}>{{ profile.name }}</h3>
     <p><strong>Position:</strong> {{ profile.position }}</p>
 
-    {% if profile.affiliations %}
-      <p><strong>Affiliations:</strong></p>
-      <ul>
-        {% for affiliation in profile.affiliations %}
-          <li>{{ affiliation }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-
     {% if profile.email %}
-      <p><strong>Email:</strong> {{ profile.email }}</p>
+      <p><strong>Email:</strong> <a href="mailto:{{ profile.email }}">{{ profile.email }}</a></p>
+    {% endif %}
+    {% comment %} compact icon links for contact/profile pages (placed above affiliations and projects) {% endcomment %}
+    {% assign scholar = profile['google-scholar'] %}
+    {% if scholar == nil %}
+      {% assign scholar = profile.google_scholar %}
     {% endif %}
 
-    {% if profile.github %}
-      <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
-    {% endif %}
+    <div class="profile-links" aria-hidden="false">
 
-    {% if profile.ORCID %}
-      <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
+      {% if profile.github %}
+        {% assign github_field = profile.github %}
+        {% if github_field contains 'http' %}
+          {% capture gh_host %}{{ github_field | remove: 'https://' | remove: 'http://' | split: '/' | first }}{% endcapture %}
+        {% else %}
+          {% capture gh_host %}github.com{% endcapture %}
+        {% endif %}
+        {% assign gh_favicon = 'https://' | append: gh_host | append: '/favicon.ico' %}
+        {% if github_field contains 'http' %}
+          {% assign gh_link = github_field %}
+        {% else %}
+          {% assign gh_link = 'https://github.com/' | append: github_field %}
+        {% endif %}
+        <a class="profile-link" href="{{ gh_link }}" title="GitHub: {{ profile.github }}" aria-label="GitHub {{ profile.name }}" target="_blank" rel="noopener noreferrer">
+          <img class="profile-icon" src="{{ gh_favicon }}" alt="GitHub">
+        </a>
+      {% endif %}
+
+      {% if profile.ORCID %}
+        {% assign orcid_field = profile.ORCID %}
+        {% if orcid_field contains 'http' %}
+          {% capture orcid_host %}{{ orcid_field | remove: 'https://' | remove: 'http://' | split: '/' | first }}{% endcapture %}
+        {% else %}
+          {% capture orcid_host %}orcid.org{% endcapture %}
+        {% endif %}
+        {% assign orcid_favicon = 'https://' | append: orcid_host | append: '/favicon.ico' %}
+        {% if orcid_field contains 'http' %}
+          {% assign orcid_link = orcid_field %}
+        {% else %}
+          {% assign orcid_link = 'https://orcid.org/' | append: orcid_field %}
+        {% endif %}
+        <a class="profile-link" href="{{ orcid_link }}" title="ORCID: {{ profile.ORCID }}" aria-label="ORCID {{ profile.name }}" target="_blank" rel="noopener noreferrer">
+          <img class="profile-icon" src="{{ orcid_favicon }}" alt="ORCID">
+        </a>
+      {% endif %}
+
+      {% if scholar %}
+        {% assign scholar_field = scholar %}
+        {% if scholar_field contains 'http' %}
+          {% capture scholar_host %}{{ scholar_field | remove: 'https://' | remove: 'http://' | split: '/' | first }}{% endcapture %}
+        {% else %}
+          {% capture scholar_host %}scholar.google.com{% endcapture %}
+        {% endif %}
+        {% assign scholar_favicon = 'https://' | append: scholar_host | append: '/favicon.ico' %}
+        <a class="profile-link" href="{{ scholar_field }}" title="Google Scholar" aria-label="Google Scholar {{ profile.name }}" target="_blank" rel="noopener noreferrer">
+          <img class="profile-icon" src="{{ scholar_favicon }}" alt="Google Scholar">
+        </a>
+      {% endif %}
+    </div>
+
+    {% if profile.affiliations %}
+      <details>
+        <summary><b>Affiliations</b></summary>
+        <ul>
+          {% for affiliation in profile.affiliations %}
+            <li>{{ affiliation }}</li>
+          {% endfor %}
+        </ul>
+      </details>
     {% endif %}
 
     {% if profile.projects %}
-      <p><strong>Projects:</strong></p>
-      <ul>
-        {% for project in profile.projects %}
-          <li>{{ project }}</li>
-        {% endfor %}
-      </ul>
+      <details>
+        <summary><b>Projects</b></summary>
+        <ul>
+          {% for project in profile.projects %}
+            <li>{{ project }}</li>
+          {% endfor %}
+        </ul>
+      </details>
     {% endif %}
   </div>
 {% endif %}
