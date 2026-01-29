@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: "Publications in reversed chronological order by year. <strong>Current members</strong> and alumni are linked to their member page."
+description: 'Publications in reversed chronological order by year. <strong>Current members</strong> and <i>alumni</i> are linked to their member page.'
 nav: true
 nav_order: 3
 ---

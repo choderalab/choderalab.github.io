@@ -133,7 +133,7 @@
             <strong><a href="{{ '/members/#' | append: anchor_id }}">{{ author_last_html | strip }} {{ initials | strip }}</a></strong>
           {%- elsif member_status == 'alumni' -%}
             {% assign anchor_id = 'alumni-' | append: member_anchor %}
-            <a href="{{ '/members/#' | append: anchor_id }}">{{ author_last_html | strip }} {{ initials | strip }}</a>
+            <i><a href="{{ '/members/#' | append: anchor_id }}">{{ author_last_html | strip }} {{ initials | strip }}</a></i>
           {%- else -%}
             {%- if coauthor_url -%}
               <a href="{{ coauthor_url }}">{{ author_last_html | strip }} {{ initials | strip }}</a>
