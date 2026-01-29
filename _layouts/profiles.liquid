@@ -5,88 +5,78 @@ layout: page
   <article>
     {{ content }}
 
+    <style>
+      /* Hide TOC links that point to alumni headings on this page TOC */
+      #toc-sidebar a[href^="#alumni-"] {
+        display: none !important;
+      }
+      /* Small icon bar for profile contact links */
+      .profile-links {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0.5rem 0 0.75rem 0;
+      }
+      .profile-link {
+        color: inherit;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+      /* Ensure all contact icons (favicons or inline SVGs) render at a consistent size */
+      .profile-link img,
+      .profile-link svg,
+      .profile-icon {
+        width: 30px;
+        height: 30px;
+        display: block;
+        object-fit: contain;
+      }
+    </style>
+
+    {% if page.profiles %}
+      {% for profile in page.profiles %}
+        <hr>
+        {% include profile-card.liquid profile=profile %}
+
+        <div class="clearfix">
+          {% if profile.content %}
+            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
+            {{ profile_content | markdownify }}
+          {% else %}
+            {{ content }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endif %}
+
     {% if site.data.members %}
       <h2>Current Members</h2>
       {% for member_file in site.data.members %}
         {% assign profile = member_file[1] %}
         {% if profile.status == "current" %}
-          <div class="profile clearfix">
-            <h3>{{ profile.name }}</h3>
-            <p><strong>Position:</strong> {{ profile.position }}</p>
+          <hr>
+            {% assign heading_id = profile.name | slugify | prepend: 'member-' %}
+            {% include profile-card.liquid profile=profile render_details=false %}
 
-            {% if profile.affiliations %}
-              <p><strong>Affiliations:</strong></p>
-              <ul>
-                {% for affiliation in profile.affiliations %}
-                  <li>{{ affiliation }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-
-            {% if profile.email %}
-              <p><strong>Email:</strong> {{ profile.email }}</p>
-            {% endif %}
-
-            {% if profile.github %}
-              <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
-            {% endif %}
-
-            {% if profile.ORCID %}
-              <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
-            {% endif %}
-
-            {% if profile.projects %}
-              <p><strong>Projects:</strong></p>
-              <ul>
-                {% for project in profile.projects %}
-                  <li>{{ project }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
+            {% include profile-card.liquid profile=profile render_details=true show_image=false heading_id=heading_id %}
         {% endif %}
       {% endfor %}
 
       <h2>Alumni</h2>
+      <details>
+      <summary><b>Alumni</b></summary>
       {% for member_file in site.data.members %}
         {% assign profile = member_file[1] %}
         {% if profile.status != "current" %}
-          <div class="profile clearfix">
-            <h3>{{ profile.name }}</h3>
-            <p><strong>Position:</strong> {{ profile.position }}</p>
+          <hr>
+          {% assign heading_id = profile.name | slugify | prepend: 'alumni-' %}
+          {% include profile-card.liquid profile=profile render_details=false %}
 
-            {% if profile.affiliations %}
-              <p><strong>Affiliations:</strong></p>
-              <ul>
-                {% for affiliation in profile.affiliations %}
-                  <li>{{ affiliation }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-
-            {% if profile.email %}
-              <p><strong>Email:</strong> {{ profile.email }}</p>
-            {% endif %}
-
-            {% if profile.github %}
-              <p><strong>GitHub:</strong> <a href="https://github.com/{{ profile.github }}">{{ profile.github }}</a></p>
-            {% endif %}
-
-            {% if profile.ORCID %}
-              <p><strong>ORCID:</strong> <a href="https://orcid.org/{{ profile.ORCID }}">{{ profile.ORCID }}</a></p>
-            {% endif %}
-
-            {% if profile.projects %}
-              <p><strong>Projects:</strong></p>
-              <ul>
-                {% for project in profile.projects %}
-                  <li>{{ project }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
+          {% include profile-card.liquid profile=profile render_details=true heading_id=heading_id show_image=false %}
         {% endif %}
       {% endfor %}
+      </details>
     {% else %}
       <p>No member profiles found.</p>
     {% endif %}
