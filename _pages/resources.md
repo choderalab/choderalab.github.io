@@ -1,5 +1,5 @@
 ---
-layout: resources
+layout: page
 permalink: /resources/
 title: resources
 description: resources
@@ -17,6 +17,7 @@ children:
     permalink: /resources/data/
   - title: divider
   - title: 3dparts
+    description: 3d parts
     permalink: /resources/3dparts/
   - title: divider
   - title: blog

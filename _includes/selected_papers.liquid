@@ -1,3 +1,6 @@
 <div class="publications">
-  {% bibliography --group_by none --query @*[selected=true]* %}
+  {% assign current_year = "now" | date: "%Y" | plus: 0 %}
+  {% assign cutoff_year = current_year | minus: 2 %}
+
+  {% bibliography --group_by none --query @*[year >= {{cutoff_year}}]* %}
 </div>

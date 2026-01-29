@@ -2,7 +2,7 @@
 layout: about
 title: home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+#subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
@@ -49,6 +49,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+
+
 The Chodera lab uses computation and experiments to develop quantitative, multiscale models of the 
 effects of small molecules on biomolecular macromolecules and cellular pathways. To do this, the 
 group utilizes physical models and rigorous statistical mechanics, with the overall goals of 
@@ -60,6 +62,6 @@ processing units (GPUs) and distributed computing platforms, in addition to robo
 and high-throughput experiments focusing on characterizing biophysical interactions between 
 proteins and small molecules.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+The lab is a core member of the [AI-driven Structure-enabled Antiviral Discovery Platform (ASAP)](https://asapdiscovery.org), 
+the [Folding@home Consortium](https://foldingathome.org), the [Open Force Field Initiative](https://openforcefield.org), 
+and [Open Free Energy](https://openfree.energy).

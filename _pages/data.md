@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /resources/datasets/
-title: datasets
+permalink: /resources/data/
+title: data
 nav: false
 toc:
   sidebar: left
