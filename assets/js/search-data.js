@@ -53,7 +53,7 @@ ninja.data = [{
               },
             },{id: "dropdown-3dparts",
               title: "3dparts",
-              description: "",
+              description: "3d parts",
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/resources/3dparts/";
@@ -79,367 +79,180 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/dislosures/";
           },
-        },{id: "post-a-post-with-plotly-js",
+        },{id: "post-ml-foundry-ai-for-science-symposium",
         
-          title: "a post with plotly.js",
+          title: "ML Foundry AI for Science Symposium",
         
-        description: "this is what included plotly.js code could look like",
+        description: "Poster at the AI4Science symposium hosted by ML Foundry",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/plotly/";
+            window.location.href = "/blog/2025/ml_foundary_al_for_science_symposium/";
           
         },
-      },{id: "post-a-post-with-image-galleries",
+      },{id: "post-ellis-ml4molecules-workshop-in-berlin",
         
-          title: "a post with image galleries",
+          title: "ELLIS ML4Molecules Workshop in Berlin",
         
-        description: "this is what included image galleries could look like",
+        description: "Presentation at the ELLIS ML4Molecules Workshop",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/photo-gallery/";
+            window.location.href = "/blog/2024/ellis_ml4molecules_workshop_in_berlin/";
           
         },
-      },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
+      },{id: "post-postdoctoral-fellow-maria-a-castellanos-wins-poster-prize-at-computational-medicinal-chemistry-school-for-alphafold-based-prediction-of-antiviral-spectrum",
         
-          title: 'Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+          title: "Postdoctoral Fellow Maria A. Castellanos wins poster prize at Computational Medicinal Chemistry School...",
         
-        description: "We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.",
+        description: "Maria A. Castellanos was awarded a poster prize at the Computational Medicinal Chemistry School",
         section: "Posts",
         handler: () => {
           
-            window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
+            window.location.href = "/blog/2024/poster_prize_win/";
           
         },
-      },{id: "post-a-post-with-tabs",
+      },{id: "post-icbs2024-international-chemical-biology-society-2025-keynote-in-toronto",
         
-          title: "a post with tabs",
+          title: "ICBS2024 International Chemical Biology Society 2025 keynote in Toronto",
         
-        description: "this is what included tabs in a post could look like",
+        description: "ICBS2024 International Chemical Biology Society 2025 keynote in Toronto",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/tabs/";
+            window.location.href = "/blog/2024/ICBS2024-_keynote/";
           
         },
-      },{id: "post-a-post-with-typograms",
+      },{id: "post-2024-ncats-assay-guidance-manual-in-silico-drug-discovery-workshop",
         
-          title: "a post with typograms",
+          title: "2024 NCATS Assay Guidance Manual in silico drug discovery workshop",
         
-        description: "this is what included typograms code could look like",
+        description: "2024 NCATS Assay Guidance Manual in silico drug discovery workshop",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/typograms/";
+            window.location.href = "/blog/2024/NCATS_assay_guidance_manual/";
           
         },
-      },{id: "post-a-post-that-can-be-cited",
+      },{id: "post-openeye-cup-xxiii-talk-ml-mm-repex-atm-fep-mbar-rbfes-and-you",
         
-          title: "a post that can be cited",
+          title: "OpenEye CUP XXIII talk: ML/MM REPEX/ATM FEP/MBAR RBFEs and You",
         
-        description: "this is what a post that can be cited looks like",
+        description: "OpenEye CUP XXIII talk: ML/MM REPEX/ATM FEP/MBAR RBFEs and You",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/post-citation/";
+            window.location.href = "/blog/2024/openeye_cup_xxiii/";
           
         },
-      },{id: "post-a-post-with-pseudo-code",
+      },{id: "post-cadd-grc-2023-talk",
         
-          title: "a post with pseudo code",
+          title: "CADD GRC 2023 talk",
         
-        description: "this is what included pseudo code could look like",
+        description: "CADD GRC 2023 talk",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/pseudocode/";
+            window.location.href = "/blog/2023/CADD-GRC-talk/";
           
         },
-      },{id: "post-a-post-with-code-diff",
+      },{id: "post-celebrating-ten-years-at-mskcc",
         
-          title: "a post with code diff",
+          title: "Celebrating ten years at MSKCC",
         
-        description: "this is how you can display code diffs",
+        description: "Celebrating ten years at MSKCC",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/code-diff/";
+            window.location.href = "/blog/2022/Ten-Years-at-MSKCC/";
           
         },
-      },{id: "post-a-post-with-advanced-image-components",
+      },{id: "post-barcelona-mmsml-talk-teaching-free-energy-calculations-to-learn",
         
-          title: "a post with advanced image components",
+          title: "Barcelona MMSML talk: Teaching free energy calculations to learn",
         
-        description: "this is what advanced image components could look like",
+        description: "Barcelona MMSML talk: Teaching free energy calculations to learn",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/advanced-images/";
+            window.location.href = "/blog/2022/barcelona-mmsml-talk/";
           
         },
-      },{id: "post-a-post-with-vega-lite",
+      },{id: "post-recomb-2022-talk-the-covid-moonshot-and-the-new-asap-avidd-center",
         
-          title: "a post with vega lite",
+          title: "RECOMB 2022 talk: The COVID Moonshot and the new ASAP AViDD Center",
         
-        description: "this is what included vega lite code could look like",
+        description: "RECOMB 2022 talk: The COVID Moonshot and the new ASAP AViDD Center",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/vega-lite/";
+            window.location.href = "/blog/2022/RECOMB-talk/";
           
         },
-      },{id: "post-a-post-with-geojson",
+      },{id: "post-nih-awards-initial-68m-for-ai-driven-structure-enabled-antiviral-platform-asap-for-open-science-discovery-of-oral-antivirals-for-pandemic-preparedness",
         
-          title: "a post with geojson",
+          title: "NIH awards initial $68M for AI-driven Structure-enabled Antiviral Platform (ASAP) for open science...",
         
-        description: "this is what included geojson code could look like",
+        description: "NIH awards initial $68M for AI-driven Structure-enabled Antiviral Platform (ASAP) for open science discovery of oral antivirals for pandemic preparedness",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/geojson-map/";
+            window.location.href = "/blog/2022/NIH-ASAP-AWARD/";
           
         },
-      },{id: "post-a-post-with-echarts",
+      },{id: "post-iclr-machine-learning-for-drug-discovery-mldd-workshop-talk-slides",
         
-          title: "a post with echarts",
+          title: "ICLR Machine Learning for Drug Discovery (MLDD) Workshop talk slides",
         
-        description: "this is what included echarts code could look like",
+        description: "ICLR Machine Learning for Drug Discovery (MLDD) Workshop talk slides",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/echarts/";
+            window.location.href = "/blog/2022/ICLR-MLDD/";
           
         },
-      },{id: "post-a-post-with-chart-js",
+      },{id: "post-kate-holloway-award-symposium-talk",
         
-          title: "a post with chart.js",
+          title: "Kate Holloway award symposium talk",
         
-        description: "this is what included chart.js code could look like",
+        description: "Kate Holloway award symposium talk",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/chartjs/";
+            window.location.href = "/blog/2022/kate-holloway-talk/";
           
         },
-      },{id: "post-a-post-with-tikzjax",
+      },{id: "post-openeye-cup-xxi-talk-a-moonshot-on-theory-and-practice",
         
-          title: "a post with TikZJax",
+          title: "OpenEye CUP XXI talk - A Moonshot on Theory and Practice",
         
-        description: "this is what included TikZ code could look like",
+        description: "OpenEye CUP XXI talk - A Moonshot on Theory and Practice",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/tikzjax/";
+            window.location.href = "/blog/2022/openeye-cup-xxi/";
           
         },
-      },{id: "post-a-post-with-bibliography",
+      },{id: "post-nih-bisti-talk-open-science-antiviral-discovery-with-the-covid-moonshot-and-the-open-source-drug-discovery-ecosystem",
         
-          title: "a post with bibliography",
+          title: "NIH BISTI talk: Open science antiviral discovery with the covid moonshot 🌙 🚀...",
         
-        description: "an example of a blog post with bibliography",
+        description: "NIH BISTI talk: Open science antiviral discovery with the covid moonshot 🌙 🚀 and the open source drug discovery ecosystem",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/post-bibliography/";
+            window.location.href = "/blog/2022/NIH-bisti-talk/";
           
         },
-      },{id: "post-a-post-with-jupyter-notebook",
+      },{id: "post-university-of-toronto-talk-slides",
         
-          title: "a post with jupyter notebook",
+          title: "University of Toronto talk slides",
         
-        description: "an example of a blog post with jupyter notebook",
+        description: "University of Toronto talk slides",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/jupyter-notebook/";
-          
-        },
-      },{id: "post-a-post-with-custom-blockquotes",
-        
-          title: "a post with custom blockquotes",
-        
-        description: "an example of a blog post with custom blockquotes",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/custom-blockquotes/";
-          
-        },
-      },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
-        
-          title: "a post with table of contents on a sidebar",
-        
-        description: "an example of a blog post with table of contents on a sidebar",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/sidebar-table-of-contents/";
-          
-        },
-      },{id: "post-a-post-with-audios",
-        
-          title: "a post with audios",
-        
-        description: "this is what included audios could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/audios/";
-          
-        },
-      },{id: "post-a-post-with-videos",
-        
-          title: "a post with videos",
-        
-        description: "this is what included videos could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/videos/";
-          
-        },
-      },{id: "post-displaying-beautiful-tables-with-bootstrap-tables",
-        
-          title: "displaying beautiful tables with Bootstrap Tables",
-        
-        description: "an example of how to use Bootstrap Tables",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/tables/";
-          
-        },
-      },{id: "post-a-post-with-table-of-contents",
-        
-          title: "a post with table of contents",
-        
-        description: "an example of a blog post with table of contents",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/table-of-contents/";
-          
-        },
-      },{id: "post-a-post-with-giscus-comments",
-        
-          title: "a post with giscus comments",
-        
-        description: "an example of a blog post with giscus comments",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2022/giscus-comments/";
-          
-        },
-      },{id: "post-displaying-external-posts-on-your-al-folio-blog",
-        
-          title: 'Displaying External Posts on Your al-folio Blog <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
-          
-        },
-      },{id: "post-a-post-with-redirect",
-        
-          title: "a post with redirect",
-        
-        description: "you can also redirect to assets like pdf",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/assets/pdf/example_pdf.pdf";
-          
-        },
-      },{id: "post-a-post-with-diagrams",
-        
-          title: "a post with diagrams",
-        
-        description: "an example of a blog post with diagrams",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2021/diagrams/";
-          
-        },
-      },{id: "post-a-distill-style-blog-post",
-        
-          title: "a distill-style blog post",
-        
-        description: "an example of a distill-style blog post and main elements",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2021/distill/";
-          
-        },
-      },{id: "post-a-post-with-twitter",
-        
-          title: "a post with twitter",
-        
-        description: "an example of a blog post with twitter",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2020/twitter/";
-          
-        },
-      },{id: "post-a-post-with-disqus-comments",
-        
-          title: "a post with disqus comments",
-        
-        description: "an example of a blog post with disqus comments",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/disqus-comments/";
-          
-        },
-      },{id: "post-a-post-with-math",
-        
-          title: "a post with math",
-        
-        description: "an example of a blog post with some math",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/math/";
-          
-        },
-      },{id: "post-a-post-with-code",
-        
-          title: "a post with code",
-        
-        description: "an example of a blog post with some code",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/code/";
-          
-        },
-      },{id: "post-a-post-with-images",
-        
-          title: "a post with images",
-        
-        description: "this is what included images could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/images/";
-          
-        },
-      },{id: "post-a-post-with-formatting-and-links",
-        
-          title: "a post with formatting and links",
-        
-        description: "march &amp; april, looking forward to summer",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/formatting-and-links/";
+            window.location.href = "/blog/2021/U-toronto-talk/";
           
         },
       },{id: "books-the-godfather",
