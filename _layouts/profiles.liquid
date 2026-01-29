@@ -52,9 +52,10 @@ layout: page
         {% assign profile = member_file[1] %}
         {% if profile.status == "current" %}
           <hr>
-          {% include profile-card.liquid profile=profile render_details=false %}
+            {% assign heading_id = profile.name | slugify | prepend: 'member-' %}
+            {% include profile-card.liquid profile=profile render_details=false %}
 
-          {% include profile-card.liquid profile=profile render_details=true show_image=false %}
+            {% include profile-card.liquid profile=profile render_details=true show_image=false heading_id=heading_id %}
         {% endif %}
       {% endfor %}
 
