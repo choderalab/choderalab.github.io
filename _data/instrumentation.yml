@@ -87,7 +87,7 @@
 
 - title: Column chromatography
   type: instrument_list
-  icon: fa-solid fa-box-open
+  icon: fa-solid fa-magnet
   contents:
 
   - name: Four-tiered Bio-Rad NGC Quest 10 Plus Chromatography System
