@@ -12,7 +12,7 @@
     image: /assets/img/data/AurA-thumbnail.jpeg
 
   - name: "Microsecond trajectory of human tyrosine kinase ABL1 kinase domain on Figshare"
-    authors: "Soreen Cyphers and John D. Chodera"
+    authors: "Sonya Hanson and John D. Chodera"
     description: "A microsecond trajectory of the human tyrosine kinase ABL1 kinase domain generated on Foldign@home using the OpenMM 6.3 core (core 21)."
     data_link: "https://dx.doi.org/10.6084/m9.figshare.4496795.v1"
     citation: "Chodera, John; Hanson, Sonya (2016). Microsecond molecular dynamics simulation of kinase domain of the human tyrosine kinase ABL1. figshare. Dataset."
@@ -28,7 +28,7 @@
     image: /assets/img/data/ensembler.png
 
   - name: "Solvated alanine dipeptide - thermodynamics and kinetics"
-    authors: "Daniel L. Parton, Patrick B. Grinaway, Sonya M. Hanson, Kyle A. Beauchamp, and John D. Chodera"
+    authors: "John D. Chodera, Nina Singhal, Vijay S. Pande, Ken A. Dill, and William C. Swope"
     description: "A collection of datasets of the alanine dipeptide (more specifically, terminally-blocked alanine peptide) in explicit solvent. These datasets cover both thermodynamic simulations (parallel tempering) and kinetic simulations (Hamiltonian dynamics trajectories) useful for testing algorithms analyzing the thermodynamics and kinetics of biomolecular systems. This model system has already been used in several research papers."
     data_link: "https://simtk.org/home/alanine-dipeptide/"
     citation: "Chodera, John D., et al. Automatic discovery of metastable states for the construction of Markov models of macromolecular conformational dynamics. The Journal of chemical physics 126.15 (2007)."
