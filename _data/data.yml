@@ -1,0 +1,56 @@
+- title: Computational Datasets
+  type: data_list
+  icon: fa-solid fa-gear
+  contents:
+
+  - name: "Explicit solvent Folding@home trajectories for Aurora A kinase (AurA) from our Nature Chemical Biology paper"
+    authors: "Soreen Cyphers, Emily F. Ruff, Julie M. Behr, John D. Chodera, and Nicholas M. Levinson"
+    description: "We have made all the explicit-solvent Folding@home simulation data and analysis scripts used in this paper available for download: <a href =\"http://github.com/choderalab/AurA-materials\">here</a>"
+    data_link: "https://osf.io/afg8h/"
+    citation: "Cyphers, Soreen, et al. A water-mediated allosteric network governs activation of Aurora kinase A. Nature chemical biology 13.4 (2017): 402-408."
+    citation_doi: https://doi.org/10.1038/nchembio.2296
+    image: /assets/img/data/AurA-thumbnail.jpeg
+
+  - name: "Microsecond trajectory of human tyrosine kinase ABL1 kinase domain on Figshare"
+    authors: "Sonya Hanson and John D. Chodera"
+    description: "A microsecond trajectory of the human tyrosine kinase ABL1 kinase domain generated on Foldign@home using the OpenMM 6.3 core (core 21)."
+    data_link: "https://dx.doi.org/10.6084/m9.figshare.4496795.v1"
+    citation: "Chodera, John; Hanson, Sonya (2016). Microsecond molecular dynamics simulation of kinase domain of the human tyrosine kinase ABL1. figshare. Dataset."
+    doi: https://doi.org/10.6084/m9.figshare.4496795.v1
+    image: /assets/img/data/ABL1_kinase.jpeg
+
+  - name: "Ensembler-generated Tyrosine kinase models"
+    authors: "Daniel L. Parton, Patrick B. Grinaway, Sonya M. Hanson, Kyle A. Beauchamp, and John D. Chodera"
+    description: "A collection of structures of all human tyrosine kinase catalytic domains modeled onto all kinase domain structures from any organism from the RCSB using our <a href=\"https://github.com/choderalab/ensembler\">Ensembler</a>, high-throughput modeling and simulation setup tool."
+    data_link: "http://dx.doi.org/10.5061/dryad.7fg32"
+    citation: "Parton, Daniel L.; Grinaway, Patrick B.; Hanson, Sonya M. et al. (2017). Data from: Ensembler: enabling high-throughput molecular simulations at the superfamily scale [Dataset]. Dryad."
+    citation_doi: https://doi.org/10.5061/dryad.7fg32
+    image: /assets/img/data/ensembler.png
+
+  - name: "Solvated alanine dipeptide - thermodynamics and kinetics"
+    authors: "John D. Chodera, Nina Singhal, Vijay S. Pande, Ken A. Dill, and William C. Swope"
+    description: "A collection of datasets of the alanine dipeptide (more specifically, terminally-blocked alanine peptide) in explicit solvent. These datasets cover both thermodynamic simulations (parallel tempering) and kinetic simulations (Hamiltonian dynamics trajectories) useful for testing algorithms analyzing the thermodynamics and kinetics of biomolecular systems. This model system has already been used in several research papers."
+    data_link: "https://simtk.org/home/alanine-dipeptide/"
+    citation: "Chodera, John D., et al. Automatic discovery of metastable states for the construction of Markov models of macromolecular conformational dynamics. The Journal of chemical physics 126.15 (2007)."
+    citation_doi: https://doi.org/10.1063/1.2714538
+    image: /assets/img/data/alanine-dipeptide.png
+
+- title: Experimental Datasets
+  type: data_list
+  icon: fa-solid fa-flask
+  contents:
+
+  - name: "Human kinome bacterial expression data"
+    authors: "Steven K. Albanese, Daniel L. Parton, Mehtap Işık, Lucelenie Rodríguez-Laureano, Sonya M. Hanson, Julie M. Behr, Scott Gradia, Chris Jeans, Nicholas M. Levinson, Markus A. Seeliger, John D. Chodera"
+    description: "Constructs of human kinase domains known to express well in E. coli, using the PDB as a source of potential expression constructs, confirmed by automated cloning and expression."
+    preprint: http://dx.doi.org/10.1101/038711
+    extra_info: "Plasmids available via Addgene https://www.addgene.org/kits/chodera-kinase-domains."
+    data_link: http://choderalab.github.io/kinome-data/kinase_constructs-addgene_hip_sgc.html
+    citation: "Albanese, Steven K., et al. An open library of human kinase domain constructs for automated bacterial expression. Biochemistry 57.31 (2018): 4675-4689."
+    citation_doi: https://doi.org/10.1063/1.2714538
+    image: /assets/img/data/kinome_bact.jpeg
+
+  - name: "Cyclohexane / water distribution coefficients for the SAMPL5 challenge"
+    authors: "Bas Rustenburg, John D. Chodera, David L. Mobley"
+    description: "For the purpose of the SAMPL5 distribution coefficient challenge, 53 small-molecule cyclohexane/water distribution coefficients have been measured at Genentech as part of an internship project. The data set is publicly available on Github, including the scripts used to analyze the results."
+    data_link: https://github.com/choderalab/sampl5-experimental-logd-data
