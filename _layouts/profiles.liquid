@@ -76,33 +76,6 @@ layout: page
       {%- endcomment -%}
       {% assign rendered_names = "" %}
 
-      {%- comment -%}
-        Administrative section: render any current member whose position
-        indicates administrative duties (we look for 'admin' in the position)
-        or who is explicitly named "Ellen". This appears before the role-
-        ordered sections and uses `rendered_names` to avoid duplicates.
-      {%- endcomment -%}
-      {% assign admin_heading_shown = false %}
-      {% for member_file in site.data.members %}
-        {% assign profile = member_file[1] %}
-        {% if profile.status == "current" and profile.position %}
-          {% assign pos = profile.position | downcase | default: '' %}
-          {% if pos contains 'admin' or profile.name contains 'Ellen' %}
-            {% unless rendered_names contains profile.name %}
-              {% unless admin_heading_shown %}
-                <h3>Administration</h3>
-                {% assign admin_heading_shown = true %}
-              {% endunless %}
-              <hr>
-              {% assign heading_id = profile.name | slugify | prepend: 'member-' %}
-              {% include profile-card.liquid profile=profile render_details=false %}
-              {% include profile-card.liquid profile=profile render_details=true show_image=false heading_id=heading_id %}
-              {% assign rendered_names = rendered_names | append: '|' | append: profile.name %}
-            {% endunless %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-
       {%- if site.data.member_roles and site.data.member_roles.roles -%}
         {% for role in site.data.member_roles.roles %}
           {%- comment -%} iterate all members and render those matching any keyword for this role {%- endcomment -%}

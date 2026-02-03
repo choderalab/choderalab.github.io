@@ -16,7 +16,7 @@ roles:
       - "office"
 
   - key: tech
-    label: "Research Technician"
+    label: "Research Technicians"
     match:
       - "techn"
       - "lab tech"
@@ -24,21 +24,21 @@ roles:
       - "research tech"
 
   - key: grad
-    label: "Graduate Student"
+    label: "Graduate Students"
     match:
       - "graduate"
       - "phd"
       - "student"
 
   - key: postdoc
-    label: "Postdoc"
+    label: "Postdocs"
     match:
       - "postdoc"
       - "postdoctoral"
       - "post-"
 
   - key: software
-    label: "Software Scientist"
+    label: "Software Scientists"
     match:
       - "software"
       - "scientist"
