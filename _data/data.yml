@@ -37,7 +37,7 @@
 
 - title: Experimental Datasets
   type: data_list
-  icon: fa-solid fa-gear
+  icon: fa-solid fa-flask
   contents:
 
   - name: "Human kinome bacterial expression data"
