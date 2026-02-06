@@ -1,0 +1,45 @@
+roles:
+  - key: principal
+    label: "Principal Investigator"
+    match:
+      - "principal"
+      - "investigator"
+      - "pi"
+    
+  - key: admin
+    label: "Administration"
+    match:
+      - "admin"
+      - "administrative"
+      - "administrator"
+      - "assistant"
+      - "office"
+
+  - key: tech
+    label: "Research Technicians"
+    match:
+      - "techn"
+      - "lab tech"
+      - "technician"
+      - "research tech"
+
+  - key: grad
+    label: "Graduate Students"
+    match:
+      - "graduate"
+      - "phd"
+      - "student"
+
+  - key: postdoc
+    label: "Postdocs"
+    match:
+      - "postdoc"
+      - "postdoctoral"
+      - "post-"
+
+  - key: software
+    label: "Software Scientists"
+    match:
+      - "software"
+      - "scientist"
+      - "engineer"

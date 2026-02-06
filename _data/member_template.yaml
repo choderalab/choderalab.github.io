@@ -1,0 +1,79 @@
+## Member YAML template
+
+# This template documents the canonical fields we expect in individual
+# member YAML files under `_data/members/`. Fields marked `optional` can be
+# omitted or commented out. Use `group:` for exact grouping (recommended)
+# and `position:` for a free-form job title.
+
+name: "Given Family"
+# Short slug or sort name (optional). If present, can be used for stable
+# linking or ordering: `alexander-payne`.
+# slug: alexander-payne
+
+# status: either `current` or `alumni`
+status: current
+
+# canonical group for deterministic ordering (optional but recommended).
+# Examples: admin, principal, grad, postdoc, tech, software
+group: 
+
+# Human-readable job title or institutional position
+position: "Graduate Student"
+
+# Birthday (optional) -- used only for display or ordering if desired
+birthday: "Month - DD"
+
+# Path to a headshot image relative to the repository root (optional)
+# e.g. assets/img/members/alexander-payne.jpg
+image: "assets/img/members/example.jpg"
+
+# Short one-line bio (optional)
+bio: "Short description or tagline."
+
+# Contact & links (optional)
+email: firstname.lastname@example.org
+telephone: ""
+office: ""
+github: "username"
+linkedin: "https://linkedin.example/"
+orcid: "0000-0000-0000-0000"
+google_scholar: "https://scholar.google.com/citations?user=..."
+personal_webpage: "https://example.com"
+cv: "https://example.com/cv.pdf"
+
+# Affiliations: list of strings
+affiliations:
+  - "Memorial Sloan Kettering Cancer Center (MSKCC)"
+  - "Tri-Institutional PhD Program in Computational Biology and Medicine"
+
+# Funding and awards (optional lists)
+funding:
+  - "NIH GM121505"
+awards:
+  - "NSF GRFP"
+
+# Projects: brief descriptions for the projects section on the profile page
+projects:
+  - "End-to-end differentiable fitting of molecular mechanics force fields"
+
+# Contributions: list of important repositories or notable contributions
+contributions:
+  - "perses"
+
+# Key dates: structured list for start/end/other dates (optional)
+key_dates:
+  - start-date: "2020-10-05"
+  # - end-date: "2023-09-30"
+
+# Interests / keywords (optional)
+interests:
+  - "machine learning"
+  - "free energy calculations"
+
+# Optional admin-only fields (do not display publicly unless desired)
+# notes: "Internal notes for maintainers"
+
+# When adding or editing this file, keep the YAML indentation and quoting
+# intact. If you prefer not to expose an item (phone, email, etc.), comment
+# out that field. Use `group:` for exact grouping rather than relying only on
+# keyword matching in `position:`.
