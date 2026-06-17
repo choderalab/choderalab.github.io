@@ -50,19 +50,90 @@ layout: page
       {% endfor %}
     {% endif %}
 
+    {%- comment -%}
+      If `_data/members/` exists we render the data-driven members listing.
+      We support two sections: Current Members and Alumni. Current Members
+      ordering is controlled by the data file `_data/member_roles.yml` which
+      contains an ordered list of role keywords. The template reads that list
+      and, for each role in order, scans the members and renders any member
+      whose `position` field contains one of the role's keywords (case
+      insensitive). A simple `rendered_names` buffer avoids duplicate
+      rendering.
+
+      This approach is intentionally heuristic: it matches keywords in the
+      `position` string. For exact control you can add a canonical `role:`
+      field to member YAML files and update `_data/member_roles.yaml` to match
+      on that key instead.
+    {%- endcomment -%}
     {% if site.data.members %}
       <h2>Current Members</h2>
+
+      {%- comment -%}
+        `rendered_names` collects names already rendered so members don't
+        appear twice if multiple role keywords match. It's a simple pipe-
+        separated string; this is sufficient for small lists and keeps the
+        template logic simple without building arrays.
+      {%- endcomment -%}
+      {% assign rendered_names = "" %}
+
+      {%- if site.data.member_roles and site.data.member_roles.roles -%}
+        {% for role in site.data.member_roles.roles %}
+          {%- comment -%} iterate all members and render those matching any keyword for this role {%- endcomment -%}
+          {% assign role_has_any = false %}
+          {% for member_file in site.data.members %}
+            {% assign profile = member_file[1] %}
+            {% if profile.status == "current" and profile.position %}
+              {% assign pos = profile.position | downcase | default: '' %}
+              {% assign matched = false %}
+              {% for kw in role.match %}
+                {% if pos contains kw %}
+                  {% assign matched = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% if matched %}
+                {% unless rendered_names contains profile.name %}
+                  {% unless role_has_any %}
+                    <h3>{{ role.label }}</h3>
+                    {% assign role_has_any = true %}
+                  {% endunless %}
+                  <hr>
+                  {% assign heading_id = profile.name | slugify | prepend: 'member-' %}
+                  {% include profile-card.liquid profile=profile render_details=false %}
+                  {% include profile-card.liquid profile=profile render_details=true show_image=false heading_id=heading_id %}
+                  {% assign rendered_names = rendered_names | append: '|' | append: profile.name %}
+                {% endunless %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+
+      {%- comment -%}
+        Fallback: after processing all configured roles, render any remaining
+        current members that did not match any keyword. This ensures every
+        current member shows up even if their `position` field uses an
+        unexpected wording.
+      {%- endcomment -%}
       {% for member_file in site.data.members %}
         {% assign profile = member_file[1] %}
         {% if profile.status == "current" %}
-          <hr>
+          {% unless rendered_names contains profile.name %}
+            <hr>
             {% assign heading_id = profile.name | slugify | prepend: 'member-' %}
             {% include profile-card.liquid profile=profile render_details=false %}
-
             {% include profile-card.liquid profile=profile render_details=true show_image=false heading_id=heading_id %}
+          {% endunless %}
         {% endif %}
       {% endfor %}
 
+      {%- comment -%}
+        Alumni are listed in a collapsible `<details>` block. We intentionally
+        keep the alumni rendering simple (no ordering by role) because the
+        active lab member ordering is usually more important for readers. If
+        you want alumni grouped as well, we can extend `_data/member_roles.yml`
+        and reuse the same matching logic below.
+      {%- endcomment -%}
       <h2>Alumni</h2>
       <details>
       <summary><b>Alumni</b></summary>
